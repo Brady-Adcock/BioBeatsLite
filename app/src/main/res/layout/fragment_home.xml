@@ -6,22 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+    <LinearLayout
+        android:id="@+id/channelButtonsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/channel1Button"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:strokeColor="@color/black"
+            android:text="bi-sh"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/nikki_emg"
+            app:iconGravity="textStart"
+            app:iconPadding="6dp"
+            app:iconTint="@color/black"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/channel2Button"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:strokeColor="@color/black"
+            android:text="bi-lh"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/nikki_emg"
+            app:iconGravity="textStart"
+            app:iconPadding="6dp"
+            app:iconTint="@color/black"
+            app:strokeWidth="2dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/channel3Button"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:letterSpacing="0.05"
+            android:strokeColor="@color/black"
+            android:text="fl-dg"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            app:cornerRadius="5dp"
+            app:icon="@drawable/nikki_emg"
+            app:iconGravity="textStart"
+            app:iconPadding="6dp"
+            app:iconTint="@color/black"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="380dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/channelButtonsLayout"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2.2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/chartTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:text="ELECTROMYOGRAM"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Switch
+                android:id="@+id/chartSwitch"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:thumbTint="@color/black"
+                android:thumbTintMode="multiply"
+                android:trackTint="@color/grey"
+                android:trackTintMode="src_over"
+                app:layout_constraintBaseline_toBaselineOf="@+id/chartTitle"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/emgLineChart"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chartSwitch" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:id="@+id/statusLinearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="1.5dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/dark_grey"
+            android:src="@color/dark_grey" />
+
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:maxWidth="335dp"
+            android:text="status"
+            android:textColor="@color/dark_grey"
+            android:textSize="10dp" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="1.5dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/dark_grey"
+            android:src="@color/dark_grey" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/processingComponentRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statusLinearLayout" />
+
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/baseline_add_circle_24"
+        app:layout_constraintBottom_toBottomOf="@+id/playButton"
+        app:layout_constraintEnd_toStartOf="@+id/recordButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playButton"
+        app:layout_constraintTop_toTopOf="@+id/playButton" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/playButton"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:letterSpacing="0.05"
+        android:strokeColor="@color/black"
+        android:text="play"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeWidth="2dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/recordButton"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/white"
+        android:gravity="center"
+        android:letterSpacing="0.05"
+        android:strokeColor="@color/black"
+        android:text="record"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/addButton"
+        app:layout_constraintTop_toTopOf="@+id/addButton"
+        app:strokeWidth="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
