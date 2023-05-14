@@ -1,4 +1,4 @@
-package org.impulsewellness.biobeatslite.ui.home;
+package org.impulsewellness.biobeatslite.ui.emusicg;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
